@@ -1,6 +1,18 @@
-create table user (
-    id int primary key auto_increment, 
-    name varchar(255) 
+create table tache (
+    id int not null primary key auto_increment, 
+    name varchar(255) not null,
+    description text,
+    date datetime not null,
+    priority int not null,
+    finished boolean not null,
+    is_coordination_spe boolean not null
 );
 
-insert into user (name) values ('Alice'), ('Bob'), ('Charlie'), ('David'), ('Eve'), ('Frank');
+create table reunion (
+    id int not null primary key auto_increment, 
+    name varchar(255) not null,
+    description text,
+    date datetime not null,
+    place varchar(255)
+);
+

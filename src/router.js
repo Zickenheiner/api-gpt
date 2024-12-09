@@ -1,17 +1,28 @@
 import express from 'express';
-import { add, browse, destroy, edit, read } from './modules/users/usersAction.js'
+import tacheAction from './modules/tache/tacheAction.js'
+import reunionAction from './modules/reunion/reunionAction.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', (_, res) => {
     res.json({ message: 'API fonctionnelle!' });
 });
 
-router.get("/api/users", browse);
-router.get("/api/users/:id", read);
-router.post("/api/users", add);
-router.put("/api/users", edit);
-router.delete("/api/users/:id", destroy);
+//Tache
+
+router.get("/api/taches", tacheAction.browse);
+router.get("/api/taches/:id", tacheAction.read);
+router.post("/api/taches", tacheAction.add);
+router.put("/api/taches/:id", tacheAction.edit);
+router.delete("/api/taches/:id", tacheAction.destroy);
+
+//Reunion
+
+router.get("/api/reunions", reunionAction.browse);
+router.get("/api/reunions/:id", reunionAction.read);
+router.post("/api/reunions", reunionAction.add);
+router.put("/api/reunions/:id", reunionAction.edit);
+router.delete("/api/reunions/:id", reunionAction.destroy);
 
 
 export default router;
