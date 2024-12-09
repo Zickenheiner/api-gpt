@@ -4,7 +4,7 @@ const browse = async (_, res) => {
     try {
         const meetingFromDB = await reunionRepository.readAll();
         for (const meeting of meetingFromDB) {
-            meeting.date = new Date(tache.date).toLocaleString("fr-FR");
+            meeting.date = new Date(meeting.date).toLocaleString("fr-FR");
         }
         res.status(200).json(meetingFromDB);
     } catch (error) {
